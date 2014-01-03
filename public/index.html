@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="gimmiehunter">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/poc.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-route.js"></script>
+    <script src="build/all-the-scripts.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
   </head>
   <body>
-    <div class = "row-fluid" id = "main" data-main="">
-      <div id = "graph" class = "well"></div>  
+    <div class = "container-fluid">
+      <div ng-controller="AccountController">
+        <div class = "header row-fluid" ng-controller="HeaderController">
+          <div ng-include src="'partials/header.html'"></div>
+        </div>
+        <div  ng-view></div>
+      </div>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/d3.js"></script>
-    <script src="js/rickshaw.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="js/graph.js"></script>
+
   </body>
 
 </html>

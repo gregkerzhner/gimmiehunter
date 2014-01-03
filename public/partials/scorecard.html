@@ -1,0 +1,24 @@
+<div ng-model="humblePie">
+  <div class = "row-fluid" >
+    <div ng-if="humblePie[0].type" class = "span12 well">
+      <h2> Comment Word Cloud </h2>
+      <word-cloud chart-data="commentWords"></word-cloud>
+    </div>
+  </div>
+  <div class = "row-fluid" >
+    <div ng-if="humblePie[0].type" class = "span6 well">
+      <h2> Soft versus hard routes </h2>
+      <pie-chart chart-data="humblePie"></pie-chart>
+    </div>
+    <div ng-if="humblePie[0].type" class = "span6 well">
+      <h2> Hardest Redpoints by Area </h2>
+      <pie-chart chart-data="hardMan"></pie-chart>
+    </div>
+  </div>
+  <div class = "row-fluid">
+    <div ng-if="humblePie[0].type" class = "span6 well">
+      <h2> All Ascents by Area </h2>
+      <pie-chart chart-data="ascentsByArea"></pie-chart>
+    </div>
+  </div>
+</div>

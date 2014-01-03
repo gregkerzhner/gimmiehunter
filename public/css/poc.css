@@ -1,9 +1,17 @@
 @import url(bootstrap.css);
 @import url(bootstrap-responsive.css);
-#graph{
-  width: 600px;
-  margin: 50px auto;
+html{
+  height: 100%;
 }
 body{
   background-color: #e7e7e7;
+}
+#main{
+  height: 100% !important;
+}
+#graph{
+  height: 600px;
+}
+.thin-margin{
+  margin: 20px;
 }
