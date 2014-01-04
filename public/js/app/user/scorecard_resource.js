@@ -3,7 +3,7 @@ angular.module('gimmiehunter.user.scorecard_resource',
   ).factory("ScorecardResource", 
   ["Resource",
     function(Resource){
-      var endpoint = '/user/scorecard',
+      var endpoint = '/gimmiehunter/user/scorecard',
         params = {},
         options = {};
       return new Resource(endpoint, params, options)

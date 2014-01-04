@@ -58,7 +58,7 @@ var authenticatedOrNot = function(req, res, next){
   if(req.isAuthenticated()){
     next();
   }else{
-    res.redirect("/");
+    res.redirect("/gimmiehunter");
   }
 }
 
@@ -72,6 +72,7 @@ passport.deserializeUser(function(obj, done) {
 
 app.configure(function(){ 
   app.use(express.static(__dirname + '/public'));
+  app.use('/gimmiehunter', express.static(__dirname + '/public'));
   app.use(express.cookieParser());
   app.use(express.bodyParser());
   app.use(express.session({ secret: 'SECRET' }));
@@ -79,18 +80,21 @@ app.configure(function(){
   app.use(passport.session());
 });
 
-app.get('/user/foo', account.things);
-app.get('/user/scorecard', authenticatedOrNot, account.scorecard);
-app.get('/account', authenticatedOrNot, account.home);
-app.get('/user', authenticatedOrNot, account.user);
-app.post('/user', authenticatedOrNot, account.user_update);
-app.get('/partials/:filename', partials.partials);
-app.get('/auth/twitter', passport.authenticate('twitter'));
-app.get('/auth/twitter/callback', 
+//app.set('views', __dirname + '/public/partials');
+//app.engine('html', require('ejs').renderFile);
+
+app.get('/gimmiehunter/user/foo', account.things);
+app.get('/gimmiehunter/user/scorecard', authenticatedOrNot, account.scorecard);
+app.get('/gimmiehunter/account', authenticatedOrNot, account.home);
+app.get('/gimmiehunter/user', authenticatedOrNot, account.user);
+app.post('/gimmiehunter/user', authenticatedOrNot, account.user_update);
+app.get('/gimmiehunter/partials/:filename', partials.partials);
+app.get('/gimmiehunter/auth/twitter', passport.authenticate('twitter'));
+app.get('/gimmiehunter/auth/twitter/callback', 
   passport.authenticate('twitter', 
     { 
-      successReturnToOrRedirect: '/account', 
-      failureRedirect: '/login' 
+      successReturnToOrRedirect: '/gimmiehunter/account', 
+      failureRedirect: '/gimmiehunter/login' 
     }
   )
 );

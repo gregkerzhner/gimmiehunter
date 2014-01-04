@@ -3,7 +3,7 @@ angular.module('gimmiehunter.user.user_resource',
   ).factory("UserResource", 
   ["Resource",
     function(Resource){
-      var endpoint = '/user',
+      var endpoint = '/gimmiehunter/user',
         params = {},
         options = {};
       return new Resource(endpoint, params, options)

@@ -7,19 +7,19 @@ window.app = angular.module("gimmiehunter", ['ngRoute','gimmiehunter.user.login_
   "$routeProvider", "$locationProvider", "$httpProvider", function($routeProvider, $locationProvider, $httpProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
-      .when('/', 
+      .when('/gimmiehunter', 
         {
           controller: 'LoginController', 
           templateUrl: "partials/login.html"
         }
       )
-      .when('/account', 
+      .when('/gimmiehunter/account', 
         {
           controller: 'ScorecardController', 
           templateUrl: "partials/scorecard.html"
         }
       )
-      .when('/sync', 
+      .when('/gimmiehunter/sync', 
         {
           controller: 'ScorecardSyncController', 
           templateUrl: "partials/scorecard_sync.html"
@@ -79,7 +79,7 @@ window.app = angular.module("gimmiehunter", ['ngRoute','gimmiehunter.user.login_
   ['gimmiehunter.user.user_service']
   ).controller('AccountController', ['$scope','$http', 'User', function($scope, $http, User){
     if(User.isLogged == false){
-      $http({method: 'GET', url: '/user'}).
+      $http({method: 'GET', url: '/gimmiehunter/user'}).
       success(function(data, status, headers, config) {
         if(data.user){
           User = data.user;
@@ -123,7 +123,7 @@ window.app = angular.module("gimmiehunter", ['ngRoute','gimmiehunter.user.login_
    }
   );;angular.module('gimmiehunter.user.login_controller', []).controller('LoginController', function($scope, $http){
   $scope.login = function(){
-    window.location.href = "/auth/twitter"
+    window.location.href = "/gimmiehunter/auth/twitter"
   }
 });;angular.module('gimmiehunter.user.piechart_directive', []).
    directive('pieChart', function ($parse) {
@@ -220,7 +220,7 @@ window.app = angular.module("gimmiehunter", ['ngRoute','gimmiehunter.user.login_
       $scope.ascents = $scope.getAscents();
     }
     else{
-      $location.path('/sync');
+      $location.path('/gimmiehunter/sync');
     }
   }
 ]
@@ -414,7 +414,7 @@ window.app = angular.module("gimmiehunter", ['ngRoute','gimmiehunter.user.login_
   ).factory("ScorecardResource", 
   ["Resource",
     function(Resource){
-      var endpoint = '/user/scorecard',
+      var endpoint = '/gimmiehunter/user/scorecard',
         params = {},
         options = {};
       return new Resource(endpoint, params, options)
@@ -435,7 +435,7 @@ window.app = angular.module("gimmiehunter", ['ngRoute','gimmiehunter.user.login_
       $scope.user.jensGID = $("#jens-ids").serializeArray()[1].value;
       $scope.UserModel.post(params).then(
         function(result){
-          $location.path('/account');
+          $location.path('/gimmiehunter/account');
         }
       )
     }
@@ -456,7 +456,7 @@ window.app = angular.module("gimmiehunter", ['ngRoute','gimmiehunter.user.login_
   ).factory("UserResource", 
   ["Resource",
     function(Resource){
-      var endpoint = '/user',
+      var endpoint = '/gimmiehunter/user',
         params = {},
         options = {};
       return new Resource(endpoint, params, options)

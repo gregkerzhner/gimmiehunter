@@ -7,19 +7,19 @@ window.app = angular.module("gimmiehunter", ['ngRoute','gimmiehunter.user.login_
   "$routeProvider", "$locationProvider", "$httpProvider", function($routeProvider, $locationProvider, $httpProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
-      .when('/', 
+      .when('/gimmiehunter', 
         {
           controller: 'LoginController', 
           templateUrl: "partials/login.html"
         }
       )
-      .when('/account', 
+      .when('/gimmiehunter/account', 
         {
           controller: 'ScorecardController', 
           templateUrl: "partials/scorecard.html"
         }
       )
-      .when('/sync', 
+      .when('/gimmiehunter/sync', 
         {
           controller: 'ScorecardSyncController', 
           templateUrl: "partials/scorecard_sync.html"

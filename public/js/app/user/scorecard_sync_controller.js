@@ -12,7 +12,7 @@ angular.module('gimmiehunter.user.scorecard_sync_controller', [
       $scope.user.jensGID = $("#jens-ids").serializeArray()[1].value;
       $scope.UserModel.post(params).then(
         function(result){
-          $location.path('/account');
+          $location.path('/gimmiehunter/account');
         }
       )
     }

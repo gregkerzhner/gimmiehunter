@@ -25,7 +25,7 @@ angular.module('gimmiehunter.user.scorecard_controller', [
       $scope.ascents = $scope.getAscents();
     }
     else{
-      $location.path('/sync');
+      $location.path('/gimmiehunter/sync');
     }
   }
 ]
