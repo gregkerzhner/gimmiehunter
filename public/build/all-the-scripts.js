@@ -10,19 +10,19 @@ window.app = angular.module("gimmiehunter", ['ngRoute','gimmiehunter.user.login_
       .when('/gimmiehunter', 
         {
           controller: 'LoginController', 
-          templateUrl: "partials/login.html"
+          templateUrl: "gimmiehunter/partials/login.html"
         }
       )
       .when('/gimmiehunter/account', 
         {
           controller: 'ScorecardController', 
-          templateUrl: "partials/scorecard.html"
+          templateUrl: "gimmiehunter/partials/scorecard.html"
         }
       )
       .when('/gimmiehunter/sync', 
         {
           controller: 'ScorecardSyncController', 
-          templateUrl: "partials/scorecard_sync.html"
+          templateUrl: "gimmiehunter/partials/scorecard_sync.html"
         }
       );
   }

@@ -2,7 +2,7 @@
 <html ng-app="gimmiehunter">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/poc.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/gimmiehunter/css/poc.css" media="screen" rel="stylesheet" type="text/css">
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-route.js"></script>
     <script src="/gimmiehunter/build/all-the-scripts.js"></script>
@@ -12,7 +12,7 @@
     <div class = "container-fluid">
       <div ng-controller="AccountController">
         <div class = "header row-fluid" ng-controller="HeaderController">
-          <div ng-include src="'partials/header.html'"></div>
+          <div ng-include src="'/gimmiehunter/partials/header.html'"></div>
         </div>
         <div  ng-view></div>
       </div>
