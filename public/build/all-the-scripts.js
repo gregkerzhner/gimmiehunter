@@ -10,19 +10,19 @@ window.app = angular.module("gimmiehunter", ['ngRoute','gimmiehunter.user.login_
       .when('/gimmiehunter', 
         {
           controller: 'LoginController', 
-          templateUrl: "gimmiehunter/partials/login.html"
+          templateUrl: "/gimmiehunter/partials/login.html"
         }
       )
       .when('/gimmiehunter/account', 
         {
           controller: 'ScorecardController', 
-          templateUrl: "gimmiehunter/partials/scorecard.html"
+          templateUrl: "/gimmiehunter/partials/scorecard.html"
         }
       )
       .when('/gimmiehunter/sync', 
         {
           controller: 'ScorecardSyncController', 
-          templateUrl: "gimmiehunter/partials/scorecard_sync.html"
+          templateUrl: "/gimmiehunter/partials/scorecard_sync.html"
         }
       );
   }
@@ -57,7 +57,7 @@ window.app = angular.module("gimmiehunter", ['ngRoute','gimmiehunter.user.login_
     return Model;
   });;angular.module('gimmiehunter.default.resource', []
   ).factory('Resource', function($http){
-    $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+    $http.defaults.headers.post["Content-Type"] = "application/json";
     var baseURL = 'http://localhost:4000',
       baseParams = {};
     return function(endpoint, params, options){
@@ -202,6 +202,7 @@ window.app = angular.module("gimmiehunter", ['ngRoute','gimmiehunter.user.login_
   ).controller('ScorecardController',
   ['$scope','$http', "$location", 'ScorecardModel', "UserModel", 
   function($scope, $http, $location, ScorecardModel, UserModel){
+    debugger
     $scope.ScorecardModel = ScorecardModel;
     $scope.UserModel = UserModel;
     $scope.getAscents = function(){
@@ -430,10 +431,13 @@ window.app = angular.module("gimmiehunter", ['ngRoute','gimmiehunter.user.login_
   function($scope, $http, $location, ScorecardModel, UserModel){
     $scope.UserModel = UserModel;
     $scope.submitIDs = function(data){
-      var params = $("#jens-ids").serialize();
-      $scope.user.jensID = $("#jens-ids").serializeArray()[0].value;
-      $scope.user.jensGID = $("#jens-ids").serializeArray()[1].value;
-      $scope.UserModel.post(params).then(
+      var url = $("#jens-url").val().replace(/ /g,'')
+      var userIdIndex = url.indexOf("UserId");
+      var rest = url.substring(userIdIndex);
+      $scope.user.jensID = rest.substring(7,rest.indexOf("&"));
+      var gidIndex = url.indexOf("GID");
+      $scope.user.jensGID = url.substring(gidIndex+4);
+      $scope.UserModel.post($scope.user).then(
         function(result){
           $location.path('/gimmiehunter/account');
         }

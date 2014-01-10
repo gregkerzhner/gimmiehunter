@@ -1,6 +1,6 @@
 angular.module('gimmiehunter.default.resource', []
   ).factory('Resource', function($http){
-    $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+    $http.defaults.headers.post["Content-Type"] = "application/json";
     var baseURL = 'http://localhost:4000',
       baseParams = {};
     return function(endpoint, params, options){

@@ -1,21 +1,62 @@
-<div class = "row-fluid well">
-  <div >
-    Please take a moment to set link your scorecard
+<div class = "row-fluid">
+  <div class ="span12" >
+    To sync your scorecard, you will need to your 8a.nu account IDs
   </div>
-  <form class = "span6" id = "jens-ids">
-    <div class ="row-fluid">
-      <label class = "span12">jensID </label>
-    </div>
-    <div class ="row-fluid">
-      <input type="text" name="jensID" class="span12" value = "35319">
-    </div>
-    <div class ="row-fluid">
-      <label class = "span12">jensGID </label>
-    </div>
-    <div class ="row-fluid">
-      <input type="text" name="jensGID" class="span12" value = "f5340da601c5cdf27c6d362885addfdd">
-    </div>
-    <button class = "btn btn-primary" ng-click="submitIDs()">Submit</button>
-  </form>   
-
 </div>
+<div class = "row-fluid">
+  <div class ="span12" >
+    Step1: Open an incognito window in google chrome
+  </div>
+</div>
+<div class = "row-fluid">
+  <div class ="span12 well" >
+    <img src = "/gimmiehunter/images/sync1.jpg"></img>
+  </div>
+</div>
+<div class = "row-fluid">
+  <div class ="span12" >
+    Step2: Browse to 8a.nu and click on "Search"
+  </div>
+</div>
+<div class = "row-fluid">
+  <div class ="span12 well" >
+    <img src = "/gimmiehunter/images/sync2.jpg"></img>
+  </div>
+</div>
+<div class = "row-fluid">
+  <div class ="span12" >
+    Step3: Search for the person you want to analyze
+  </div>
+</div>
+<div class = "row-fluid">
+  <div class ="span12 well" >
+    <img src = "/gimmiehunter/images/sync3.jpg"></img>
+  </div>
+</div>
+<div class = "row-fluid">
+  <div class ="span12" >
+    Step4: Go to the person's presentation page.  Right click on the routes link and click copy link address.
+  </div>
+</div>
+<div class = "row-fluid">
+  <div class ="span12 well" >
+    <img src = "/gimmiehunter/images/sync4.jpg"></img>
+  </div>
+</div>
+<div class = "row-fluid">
+  <div class ="span12" >
+    Step5: Click into the textbox below and hit "paste" (or ctr-v or whatever).  You should have a value like http://www.8a.nu/scorecard/AscentList.aspx?UserId=1476&AscentType=0&AscentClass=0&AscentListTimeInterval=0&AscentListViewType=0&GID=ea0fb3b90e4b0b655580384e07974b38
+  </div>
+</div>
+
+
+<form id = "jens-ids">
+  <div class ="row-fluid">
+    <label class = "span12">Result </label>
+  </div>
+  <div class ="row-fluid">
+    <input type="text" name="jens-url" class="span12" value = "    http://www.8a.nu/scorecard/AscentList.aspx?UserId=1476&AscentType=0&AscentClass=0&AscentListTimeInterval=0&AscentListViewType=0&GID=ea0fb3b90e4b0b655580384e07974b38       " id="jens-url">
+  </div> 
+  <button class = "btn btn-primary" ng-click="submitIDs()">Submit</button>
+</form>   
+

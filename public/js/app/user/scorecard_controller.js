@@ -7,6 +7,7 @@ angular.module('gimmiehunter.user.scorecard_controller', [
   ).controller('ScorecardController',
   ['$scope','$http', "$location", 'ScorecardModel', "UserModel", 
   function($scope, $http, $location, ScorecardModel, UserModel){
+    debugger
     $scope.ScorecardModel = ScorecardModel;
     $scope.UserModel = UserModel;
     $scope.getAscents = function(){
