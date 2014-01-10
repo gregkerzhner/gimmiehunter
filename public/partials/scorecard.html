@@ -1,5 +1,9 @@
 <div ng-model="humblePie">
   <div class = "row-fluid" >
+    <div ng-if="humblePie[0].type === undefined" class = "span12 well">
+      Please hold tight.  We are now downloading your all-time ascent list from 8a.  This may take a whole minute. (If the circle stops spinning, that means its almost done!)
+      <img src = "/gimmiehunter/images/ajax-loader.gif"></img>
+    </div>
     <div ng-if="humblePie[0].type" class = "span12 well">
       <h2> Comment Word Cloud </h2>
       <word-cloud chart-data="commentWords"></word-cloud>
