@@ -1,3 +1,5 @@
+This is a node.js + angular app.
+
 To get up and running 
 
 ```
